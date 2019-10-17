@@ -1,106 +1,111 @@
-<div class="col-lg-2">
-    <img src="../../../assets/img/user.jpg" class="rounded-circle w-100" alt="User">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+            <img src="../../../assets/img/user.jpg" class="rounded-circle w-100" alt="User">
 
-    <h6>{{form.value.fullname}}</h6>
-    <span>{{bio.value}}</span>
-</div>
-<div class="col-lg-5">
-    <!-- FORM UNO -->
-    <form [formGroup]="form" class="example-form">
-        <h2>User details</h2>
-        <mat-form-field class="w-100 pb-3">
-            <input matInput required placeholder="Full Name" formControlName="fullname">
-            <span class="valid" *ngIf="form.controls['fullname'].touched && form.controls['fullname'].errors?.required">Full name is required</span>
-        </mat-form-field>
+            <h6>{{form.value.fullname}}</h6>
+            <span>{{bio.value}}</span>
+        </div>
+        <div class="col-lg-5">
+            <!-- FORM UNO -->
+            <form [formGroup]="form" class="example-form">
+                <h2>User details</h2>
+                <mat-form-field class="w-100 pb-3">
+                    <input matInput required placeholder="Full Name" formControlName="fullname">
+                    <span class="valid" *ngIf="form.controls['fullname'].touched && form.controls['fullname'].errors?.required">Full name is required</span>
+                </mat-form-field>
 
-        <mat-form-field class="w-100 pb-3">
-            <input matInput [matDatepicker]="picker" placeholder="Your Birthday" formControlName="yourbirthday">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <span class="valid" *ngIf="form.controls['yourbirthday'].touched && form.controls['yourbirthday'].errors?.required">Your Birthday is required</span>
-        </mat-form-field>
+                <mat-form-field class="w-100 pb-3">
+                    <input matInput [matDatepicker]="picker" placeholder="Your Birthday" formControlName="yourbirthday">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <span class="valid" *ngIf="form.controls['yourbirthday'].touched && form.controls['yourbirthday'].errors?.required">Your Birthday is required</span>
+                </mat-form-field>
 
-        <mat-form-field class="w-100 pb-3">
-            <mat-label>Gender</mat-label>
-            <select matNativeControl required formControlName="gender">
+                <mat-form-field class="w-100 pb-3">
+                    <mat-label>Gender</mat-label>
+                    <select matNativeControl required formControlName="gender">
                     <option></option>
                     <option value="masculino">Masculino</option>
                     <option value="femenino">Femenino</option>
                       </select>
-            <span class="valid" *ngIf="form.controls['gender'].touched && form.controls['gender'].errors?.required">Gender is required</span>
-        </mat-form-field>
-        <div class="row">
-            <div class="col-lg-3">
-                <mat-form-field class="w-100 pb-3">
-                    <mat-label>Country</mat-label>
-                    <select matNativeControl required formControlName="country">
+                    <span class="valid" *ngIf="form.controls['gender'].touched && form.controls['gender'].errors?.required">Gender is required</span>
+                </mat-form-field>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <mat-form-field class="w-100 pb-3">
+                            <mat-label>Country</mat-label>
+                            <select matNativeControl required formControlName="country">
                 <option></option>
                 <option value="peru">Perú</option>
                 <option value="otros">Otros</option>
                     </select>
-                    <span class="valid" *ngIf="form.controls['country'].touched && form.controls['country'].errors?.required">Country is required</span>
+                            <span class="valid" *ngIf="form.controls['country'].touched && form.controls['country'].errors?.required">Country is required</span>
 
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-9">
+                        <mat-form-field class="w-100 pb-3">
+                            <input matInput placeholder="Phone" type="tel" formControlName="phone">
+                            <span class="valid" *ngIf="form.controls['phone'].touched && form.controls['phone'].errors?.required">Phone is required</span>
+                            <span class="valid" *ngIf="form.controls['phone'].errors?.pattern">Only number</span>
+                            <mat-hint><strong>Mobile:</strong> 094 231 234</mat-hint>
+                            <mat-hint align="end"><strong>Fixed:</strong> 2123 1234</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <mat-form-field class="w-100 pb-5">
+                    <textarea matInput #bio maxlength="256" rows="5" placeholder="Bio" formControlName="bio"></textarea>
+                    <mat-hint>Tell us about yourself</mat-hint>
+                    <mat-hint align="end">{{bio.value.length}} / 256</mat-hint>
                 </mat-form-field>
-            </div>
-            <div class="col-lg-9">
-                <mat-form-field class="w-100 pb-3">
-                    <input matInput placeholder="Phone" type="tel" formControlName="phone">
-                    <span class="valid" *ngIf="form.controls['phone'].touched && form.controls['phone'].errors?.required">Phone is required</span>
-                    <span class="valid" *ngIf="form.controls['phone'].errors?.pattern">Only number</span>
-                    <mat-hint><strong>Mobile:</strong> 094 231 234</mat-hint>
-                    <mat-hint align="end"><strong>Fixed:</strong> 2123 1234</mat-hint>
-                </mat-form-field>
-            </div>
+
+                <button mat-raised-button type="submit" [disabled]="form.invalid">Submit</button>
+
+            </form>
+            <!-- END FORM UNO -->
+
         </div>
+        <div class="col-lg-5">
+            <!-- FORM DOS -->
+            <form [formGroup]="formUser" class="example-form">
+                <h2>Accounts details</h2>
+                <mat-form-field class="w-100 pb-3">
+                    <input matInput required placeholder="Username" formControlName="username" minlength="5" maxlength="25">
+                    <span class="valid" *ngIf="formUser.controls['username'].touched && formUser.controls['username'].errors?.required">Username is required</span>
+                    <span class="valid" *ngIf="formUser.controls['username'].errors?.minlength">Username must be at least 5 characters</span>
+                    <span class="valid" *ngIf="formUser.controls['username'].errors?.maxlength">Username must have a maximum of 25 characters.</span>
+                </mat-form-field>
 
-        <mat-form-field class="w-100 pb-5">
-            <textarea matInput #bio maxlength="256" rows="5" placeholder="Bio" formControlName="bio"></textarea>
-            <mat-hint>Tell us about yourself</mat-hint>
-            <mat-hint align="end">{{bio.value.length}} / 256</mat-hint>
-        </mat-form-field>
+                <mat-form-field class="w-100 pb-3">
+                    <input matInput required placeholder="Email" formControlName="email">
+                    <span class="valid" *ngIf="formUser.controls['email'].errors?.required">Email is required </span>
+                    <span class="valid" *ngIf="formUser.controls['email'].email">Email invalid </span>
+                </mat-form-field>
 
-        <button mat-raised-button type="submit" [disabled]="form.invalid">Submit</button>
+                <mat-form-field class="w-100 pb-3">
+                    <input required matInput type="password" placeholder="Password" formControlName="pass" maxlength="6" />
+                    <span class="valid" *ngIf="formUser.controls['pass'].touched && formUser.controls['pass'].errors?.required">Password is required</span>
+                    <span class="valid" *ngIf="formUser.controls['pass'].errors?.minlength">Password must be at least 5 characters</span>
+                </mat-form-field>
 
-    </form>
-    <!-- END FORM UNO -->
+                <mat-form-field class="w-100 pb-3">
+                    <input required matInput placeholder="Confirm password" type="password" formControlName="passc" maxlength="6">
+                    <span class="valid" *ngIf="formUser.controls['passc'].touched && formUser.controls['passc'].errors?.required">Confirm Password is required</span>
+                    <span class="valid" *ngIf="formUser.controls['passc'].errors?.mustMatch">Passwords must match</span>
 
-</div>
-<div class="col-lg-5">
-    <!-- FORM DOS -->
-    <form [formGroup]="formUser" class="example-form">
-        <h2>Accounts details</h2>
-        <mat-form-field class="w-100 pb-3">
-            <input matInput required placeholder="Username" formControlName="username" minlength="5" maxlength="25">
-            <span class="valid" *ngIf="formUser.controls['username'].touched && formUser.controls['username'].errors?.required">Username is required</span>
-            <span class="valid" *ngIf="formUser.controls['username'].errors?.minlength">Username must be at least 5 characters</span>
-            <span class="valid" *ngIf="formUser.controls['username'].errors?.maxlength">Username must have a maximum of 25 characters.</span>
-        </mat-form-field>
+                </mat-form-field>
 
-        <mat-form-field class="w-100 pb-3">
-            <input matInput required placeholder="Email" formControlName="email">
-            <span class="valid" *ngIf="formUser.controls['email'].errors?.required">Email is required </span>
-            <span class="valid" *ngIf="formUser.controls['email'].email">Email invalid </span>
-        </mat-form-field>
+                <mat-checkbox required formControlName="term">I accept term and conditions</mat-checkbox>
+                <div class="clearfix"></div>
 
-        <mat-form-field class="w-100 pb-3">
-            <input required matInput type="password" placeholder="Password" formControlName="pass" maxlength="6" />
-            <span class="valid" *ngIf="formUser.controls['pass'].touched && formUser.controls['pass'].errors?.required">Password is required</span>
-            <span class="valid" *ngIf="formUser.controls['pass'].errors?.minlength">Password must be at least 5 characters</span>
-        </mat-form-field>
+                <button mat-raised-button class="mt-5" type="submit" [disabled]="formUser.invalid">Submit</button>
 
-        <mat-form-field class="w-100 pb-3">
-            <input required matInput placeholder="Confirm password" type="password" formControlName="passc" maxlength="6">
-            <span class="valid" *ngIf="formUser.controls['passc'].touched && formUser.controls['passc'].errors?.required">Confirm Password is required</span>
-            <span class="valid" *ngIf="formUser.controls['passc'].errors?.mustMatch">Passwords must match</span>
+            </form>
+            <!-- END FORM DOS -->
 
-        </mat-form-field>
-
-        <mat-checkbox required formControlName="term">I accept term and conditions</mat-checkbox>
+        </div>
         <div class="clearfix"></div>
-
-        <button mat-raised-button class="mt-5" type="submit" [disabled]="formUser.invalid">Submit</button>
-
-    </form>
-    <!-- END FORM DOS -->
-
+    </div>
 </div>

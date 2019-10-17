@@ -1,0 +1,13 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <input matInput aria-label="Employee" [matAutocomplete]="auto" [formControl]="employeeList">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let employee of filterEmployee | async" [value]="employee.name">
+                <img class="example-option-img" aria-hidden [src]="employee.img" height="25">
+                <span>{{employee.name}}</span> |
+                <small>Population: {{employee.cargo}}</small>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+</form>

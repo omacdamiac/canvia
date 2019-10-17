@@ -12,12 +12,19 @@ import { MatFormFieldModule,
   MatDatepickerModule,
   MatNativeDateModule,
   MatButtonModule,
-  MatCheckboxModule} from '@angular/material';
+  MatCheckboxModule,
+MatAutocompleteModule} from '@angular/material';
+import { DirectorylistComponent } from './directorylist/directorylist.component';
+import { HeaderComponent } from './header/header.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    DirectorylistComponent,
+    HeaderComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,8 @@ import { MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
