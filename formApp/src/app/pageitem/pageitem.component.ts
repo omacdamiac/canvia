@@ -12,13 +12,14 @@ import { HeaderComponent } from 'src/app/header/header.component';
   styleUrls: ['./pageitem.component.scss']
 })
 export class PageitemComponent implements OnInit {
+
   employee: Employee;
   
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService,
     private location: Location
-  ) {  }
+  ) {}
 
   ngOnInit() {
     this.getEmployee();

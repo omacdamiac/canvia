@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
 title_employee:string;
 
   constructor() { 
-    this.title_employee = 'Employee Directory';
+    this.title_employee = 'Employee';
   }
 
   ngOnInit() {

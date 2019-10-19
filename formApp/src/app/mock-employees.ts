@@ -11,7 +11,7 @@ export const EMPLOYEES: Employee[] = [
         id: 11,      
         name: 'Julie Taylor',
         cargo: 'VP of Marketing',
-        img: 'http://www.gmc-soft.com/wp-content/uploads/2017/07/img-employee-010.jpg'
+        img: 'https://material.angular.io/assets/img/examples/shiba1.jpg'
       },
       {
         id: 12,      
@@ -23,7 +23,7 @@ export const EMPLOYEES: Employee[] = [
         id: 13,      
         name: 'John Willians',
         cargo: 'VP of Engineering',
-        img: 'http://www.gmc-soft.com/wp-content/uploads/2017/07/img-employee-010.jpg'
+        img: 'https://material.angular.io/assets/img/examples/shiba1.jpg'
       },
       {
         id: 14,      
@@ -35,7 +35,7 @@ export const EMPLOYEES: Employee[] = [
         id: 15,      
         name: 'Paul Jones',
         cargo: 'QA Manager',
-        img: 'http://www.gmc-soft.com/wp-content/uploads/2017/07/img-employee-010.jpg'
+        img: 'https://material.angular.io/assets/img/examples/shiba1.jpg'
       },
       {
         id: 16,      
